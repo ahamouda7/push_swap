@@ -74,14 +74,14 @@ char	**ft_split(char const *s)
 
 	if (!s)
 		return (NULL);
-	res = malloc((words_len(s, ' ') + 1) * sizeof(char *));
+	res = malloc((words_len(s, '_') + 1) * sizeof(char *));
 	if (!res)
 		return (NULL);
 	i = 0;
 	while (*s)
 	{
-		if (*s != ' ')
-			process_word(&s, ' ', res, &i);
+		if (*s != '_')
+			process_word(&s, '_', res, &i);
 		else
 			s++;
 		if (i > 0 && !res[i - 1])

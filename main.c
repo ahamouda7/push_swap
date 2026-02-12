@@ -47,6 +47,7 @@ char    *return_str(char *str, char **argv)
     int j;
 
     i = 1;
+	str = NULL;
     while(argv[i])
     {
         j = 0;
@@ -54,23 +55,24 @@ char    *return_str(char *str, char **argv)
             return (NULL);
         while(argv[i][j] && (argv[i][j] == ' ' || argv[i][j] == '\t'))
             j++;
-        if (!argv[i][j])
+		if (!argv[i][j]
+			|| ((argv[i][j] == '-' || argv[i][j] == '+') && !argv[i][j + 1]))
             return (NULL);
         str = ft_strjoin(str, &argv[i][j]);
         if (argv[i + 1])
-            str = ft_strjoin(str, " ");
+            str = ft_strjoin(str, "_");
         i++;
     }
-    return str;
+    return (str);
 }
 
 static int	ft_atoi(char *str, int *valid)
 {
-    int res;
-    int sign;
+    long	res;
+    int 	sign;
 
+    res = 0;
     sign = 1;
-
     if (*str == '-' || *str == '+')
     {
         if (*str == '-')
@@ -80,49 +82,67 @@ static int	ft_atoi(char *str, int *valid)
     while(*str)
     {
         if (*str < '0' || *str > '9')
-        {
-            *valid = 0;
-            return (0);
-        }
+			return (*valid = 0, 0);
         res = res * 10 + (*str - '0');
         str++;
     }
     if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
-    {
-        *valid = 0;
-        return (0);
-    }
-    return (res * sign);
+		return (*valid = 0, 0);
+    return ((int)(res * sign));
 }
-// #include <stdio.h>
+
+static int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+static int	isdup(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while(str[i])
+	{
+		j = i + 1;
+		while(str[j])
+		{
+			if (!ft_strcmp(str[i], str[j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int main(int argc, char **argv)
 {
     char    *str;
     char    **nbrs_str;
-    int		**nbrs;
     int     valid;
     int     nb;
     int     i;
 
-    // str = NULL;
     str = return_str(str, argv);
     if (!str)
-    {
-        write(1, "Error\n", 6);
-        return (0);
-    }
-    // printf("%s\n", str);
+        return (write(1, "Error\n", 6), 0);
     nbrs_str = ft_split(str);
+	if (isdup(nbrs_str))
+		return (write(1, "Error\n", 6), 0);
     i = 0;
     valid = 1;
     while(nbrs_str[i])
     {
         nb = ft_atoi(nbrs_str[i], &valid);
 		if (!valid)
-		{
-			write(1, "Error\n", 6);
-        	return (0);
-		}
+			return (write(1, "Error\n", 6), 0);
         i++;
     }
 }
