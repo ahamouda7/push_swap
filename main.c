@@ -70,6 +70,7 @@ static int	ft_atoi(char *str, int *valid)
     int sign;
 
     sign = 1;
+
     if (*str == '-' || *str == '+')
     {
         if (*str == '-')
@@ -86,7 +87,7 @@ static int	ft_atoi(char *str, int *valid)
         res = res * 10 + (*str - '0');
         str++;
     }
-    if (res * sign > 2147483647 || res * sign < -2147483648)
+    if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
     {
         *valid = 0;
         return (0);
@@ -105,7 +106,7 @@ int main(int argc, char **argv)
 
     // str = NULL;
     str = return_str(str, argv);
-    if (str == NULL)
+    if (!str)
     {
         write(1, "Error\n", 6);
         return (0);
@@ -113,6 +114,7 @@ int main(int argc, char **argv)
     // printf("%s\n", str);
     nbrs_str = ft_split(str);
     i = 0;
+    valid = 1;
     while(nbrs_str[i])
     {
         nb = ft_atoi(nbrs_str[i], &valid);
@@ -121,6 +123,6 @@ int main(int argc, char **argv)
 			write(1, "Error\n", 6);
         	return (0);
 		}
-        nbrs_str++;
+        i++;
     }
 }
