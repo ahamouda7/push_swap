@@ -1,47 +1,19 @@
 #include "push_swap.h"
 
-static size_t ft_strlen(char *str)
+static char	*remove_spaces(char *str)
 {
-	size_t len;
+	int i;
 
-	if (!str)
-		return (0);
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-static char *ft_strjoin(char *s1, char *s2)
-{
-	char *s;
-	size_t i;
-	size_t len1;
-	size_t len2;
-
-	if (!s1 && !s2)
-		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	s = malloc(len1 + len2 + 1);
-	if (!s)
-		return (free(s1), NULL);
+	while(*str && (*str == ' ' || *str == '\t'))
+		str++;
 	i = 0;
-	while (i < len1)
-	{
-		s[i] = s1[i];
+	while(str[i] && str[i] != ' ' && str[i] != '\t')
 		i++;
-	}
-	while (i < len1 + len2)
-	{
-		s[i] = s2[i - len1];
-		i++;
-	}
-	s[i] = '\0';
-	return (free(s1), s);
+	str[i] = '\0';
+	return (str);
 }
 
-char    *return_str(char *str, char **argv)
+static char	*return_str(char *str, char **argv)
 {
     int i;
     int j;
@@ -53,52 +25,16 @@ char    *return_str(char *str, char **argv)
         j = 0;
         if (!*argv[i])
             return (NULL);
-        while(argv[i][j] && (argv[i][j] == ' ' || argv[i][j] == '\t'))
-            j++;
+        argv[i] = remove_spaces(argv[i]);
 		if (!argv[i][j]
 			|| ((argv[i][j] == '-' || argv[i][j] == '+') && !argv[i][j + 1]))
             return (NULL);
-        str = ft_strjoin(str, &argv[i][j]);
+        str = ft_strjoin(str, argv[i]);
         if (argv[i + 1])
             str = ft_strjoin(str, "_");
         i++;
     }
     return (str);
-}
-
-static int	ft_atoi(char *str, int *valid)
-{
-    long	res;
-    int 	sign;
-
-    res = 0;
-    sign = 1;
-    if (*str == '-' || *str == '+')
-    {
-        if (*str == '-')
-            sign = -1;
-        str++;
-    }
-    while(*str)
-    {
-        if (*str < '0' || *str > '9')
-			return (*valid = 0, 0);
-        res = res * 10 + (*str - '0');
-        str++;
-    }
-    if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
-		return (*valid = 0, 0);
-    return ((int)(res * sign));
-}
-
-static int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
 }
 
 static int	isdup(char **str)
@@ -122,27 +58,48 @@ static int	isdup(char **str)
 	return (0);
 }
 
-int main(int argc, char **argv)
+static char	**isvalid(char **argv, int *valid)
 {
     char    *str;
-    char    **nbrs_str;
-    int     valid;
-    int     nb;
-    int     i;
+	char	**nbrs_str;
+	int		i;
 
-    str = return_str(str, argv);
+	str = return_str(str, argv);
     if (!str)
-        return (write(1, "Error\n", 6), 0);
+        return (*valid = 0, NULL);
     nbrs_str = ft_split(str);
 	if (isdup(nbrs_str))
-		return (write(1, "Error\n", 6), 0);
+		return (*valid = 0, NULL);
     i = 0;
-    valid = 1;
+    *valid = 1;
     while(nbrs_str[i])
     {
-        nb = ft_atoi(nbrs_str[i], &valid);
+        ft_atoi(nbrs_str[i], valid);
 		if (!valid)
-			return (write(1, "Error\n", 6), 0);
+			return (*valid = 0, NULL);
         i++;
     }
+	return (nbrs_str);
+}
+
+int main(int argc, char **argv)
+{
+    char    **nbrs_str;
+	t_list	*stack_a;
+	t_list	*new;
+    int     valid;
+    int     i;
+
+	valid = 1;
+    nbrs_str = isvalid(argv, &valid);
+	if (!valid)
+		return(write(1, "Error\n", 6), 0);
+	i = 0;
+	stack_a = NULL;
+	while(nbrs_str[i])
+	{
+		new = ft_lstnew(ft_atoi(nbrs_str[i], &valid));
+		ft_lstadd_back(&stack_a, new);
+		i++;
+	}
 }
