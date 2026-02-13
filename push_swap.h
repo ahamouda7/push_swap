@@ -17,5 +17,10 @@ int		ft_strcmp(char *s1, char *s2);
 char	**ft_split(char const *s);
 t_list  *ft_lstnew(int value);
 void    ft_lstadd_back(t_list **lst, t_list *new);
+void    ft_lstadd_front(t_list **lst, t_list *new);
+void	swap(t_list **stack);
+void	push(t_list **stack_1, t_list **stack_2);
+void	rotate(t_list **stack);
+void	rrotate(t_list **stack);
 
 #endif
