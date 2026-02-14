@@ -18,9 +18,9 @@ int	ft_atoi(char *str, int *valid)
         if (*str < '0' || *str > '9')
 			return (*valid = 0, 0);
         res = res * 10 + (*str - '0');
+        if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
+		    return (*valid = 0, 0);
         str++;
     }
-    if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
-		return (*valid = 0, 0);
     return ((int)(res * sign));
 }

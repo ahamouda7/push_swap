@@ -3,9 +3,9 @@ NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_atoi.c ft_split.c ft_strcmp.c ft_strjoin.c ft_strlen.c \
-		ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c swap.c \
-		push.c rotate.c rrotate.c
+SRCS = ft_atoi.c ft_split.c ft_strjoin.c ft_strlen.c \
+		ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c \
+		operations.c
 
 OBJS = $(SRCS:.c=.o)
 

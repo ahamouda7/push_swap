@@ -37,23 +37,22 @@ static char	*return_str(char *str, char **argv)
     return (str);
 }
 
-static int	isdup(char **str)
+static int	isdup(t_list *stack_a)
 {
-	int	i;
-	int	j;
+	t_list	*i;
+	t_list	*j;
 
-	i = 0;
-	j = 0;
-	while(str[i])
+	i = stack_a;
+	while(i)
 	{
-		j = i + 1;
-		while(str[j])
+		j = i->next;
+		while(j)
 		{
-			if (!ft_strcmp(str[i], str[j]))
+			if (i->value == j->value)
 				return (1);
-			j++;
+			j = j->next;
 		}
-		i++;
+		i = i->next;
 	}
 	return (0);
 }
@@ -61,45 +60,62 @@ static int	isdup(char **str)
 static char	**isvalid(char **argv, int *valid)
 {
     char    *str;
-	char	**nbrs_str;
+	char	**nbrs_strs;
 	int		i;
 
 	str = return_str(str, argv);
     if (!str)
         return (*valid = 0, NULL);
-    nbrs_str = ft_split(str);
-	if (isdup(nbrs_str))
-		return (*valid = 0, NULL);
+    nbrs_strs = ft_split(str);
     i = 0;
     *valid = 1;
-    while(nbrs_str[i])
+    while(nbrs_strs[i])
     {
-        ft_atoi(nbrs_str[i], valid);
+        ft_atoi(nbrs_strs[i], valid);
 		if (!valid)
 			return (*valid = 0, NULL);
         i++;
     }
-	return (nbrs_str);
+	return (nbrs_strs);
+}
+
+static t_list	*do_stack_a(t_list **stack_a, char **nbrs_strs)
+{
+	int		i;
+	t_list	*new;
+
+	i = 0;
+	while(nbrs_strs[i])
+	{
+		new = ft_lstnew(ft_atoi(nbrs_strs[i], &i));
+		ft_lstadd_back(stack_a, new);
+		i++;
+	}
+	return (*stack_a);
 }
 
 int main(int argc, char **argv)
 {
-    char    **nbrs_str;
+    char    **nbrs_strs;
 	t_list	*stack_a;
-	t_list	*new;
     int     valid;
-    int     i;
 
 	valid = 1;
-    nbrs_str = isvalid(argv, &valid);
+    nbrs_strs = isvalid(argv, &valid);
 	if (!valid)
-		return(write(1, "Error\n", 6), 0);
-	i = 0;
+		return(write(2, "Error\n", 6), 0);
 	stack_a = NULL;
-	while(nbrs_str[i])
-	{
-		new = ft_lstnew(ft_atoi(nbrs_str[i], &valid));
-		ft_lstadd_back(&stack_a, new);
-		i++;
-	}
+	stack_a = do_stack_a(&stack_a, nbrs_strs);
+	if (isdup(stack_a))
+		return(write(2, "Error\n", 6), 0);
 }
+// #include <stdio.h>
+// void	print_stack(t_list *stack)
+// {
+// 	while(stack)
+// 	{
+// 		printf("%d ", stack->value);
+// 		stack = stack->next;
+// 	}
+// 	printf("\n");
+// }
