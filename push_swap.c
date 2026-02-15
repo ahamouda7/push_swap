@@ -136,7 +136,9 @@ int main(int argc, char **argv)
 	set_index(stack_a);
 	printf("a1 | ");
 	print_stack(stack_a);
+	printf("----------------\n");
 	push_swap(&stack_a, &stack_b);
+	printf("----------------\n");
 	printf("a2 | ");
 	print_stack(stack_a);
 }
