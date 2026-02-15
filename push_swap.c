@@ -75,7 +75,7 @@ static char	**isvalid(char **argv, int *valid)
 	return (nbrs_strs);
 }
 
-static t_list	*do_stack_a(t_list **stack_a, char **nbrs_strs)
+static void	create_stack_a(t_list **stack_a, char **nbrs_strs)
 {
 	int		i;
 	t_list	*new;
@@ -87,7 +87,6 @@ static t_list	*do_stack_a(t_list **stack_a, char **nbrs_strs)
 		ft_lstadd_back(stack_a, new);
 		i++;
 	}
-	return (*stack_a);
 }
 
 static void	push_swap(t_list **stack_a, t_list **stack_b)
@@ -130,12 +129,14 @@ int main(int argc, char **argv)
 	if (!valid)
 		return(write(2, "Error\n", 6), 0);
 	stack_a = NULL;
-	stack_b = NULL;
-	stack_a = do_stack_a(&stack_a, nbrs_strs);
+	create_stack_a(&stack_a, nbrs_strs);
 	if (isdup(stack_a))
 		return(write(2, "Error\n", 6), 0);
+	stack_b = NULL;
 	set_index(stack_a);
+	printf("a1 | ");
 	print_stack(stack_a);
 	push_swap(&stack_a, &stack_b);
+	printf("a2 | ");
 	print_stack(stack_a);
 }
