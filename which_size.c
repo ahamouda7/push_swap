@@ -110,7 +110,7 @@ static void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
 
 	i = 0;
 	a = *stack_a;
-	while(a)
+	while(*stack_a)
 	{
 		if (a->index <= i)
 			pb(stack_a, stack_b);
@@ -132,7 +132,7 @@ static void	push_back(t_list **stack_a, t_list **stack_b)
 
 	a = *stack_a;
 	b = *stack_b;
-	while(b)
+	while(*stack_b)
 	{
 		if (b->index == find_max(b))
 		{
