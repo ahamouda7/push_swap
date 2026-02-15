@@ -102,8 +102,8 @@ static void	push_swap(t_list **stack_a, t_list **stack_b)
 		size_4(stack_a, stack_b);
 	else if (size == 5)
 		size_5(stack_a, stack_b);
-	// else
-	// 	other_size(stack_a, stack_b);
+	else
+		other_size(stack_a, stack_b);
 }
 #include <stdio.h>
 void	print_stack(t_list *stack)
