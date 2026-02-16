@@ -1,5 +1,5 @@
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -37,5 +37,8 @@ void    size_3(t_list **stack_a);
 void    size_4(t_list **stack_a, t_list **stack_b);
 void    size_5(t_list **stack_a, t_list **stack_b);
 void    other_size(t_list **stack_a, t_list **stack_b);
+char	*remove_spaces(char *str);
+int     isdup(t_list *stack_a);
+void	free_2d(char **arr);
 
 #endif
