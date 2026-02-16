@@ -19,6 +19,7 @@ t_list  *ft_lstnew(int value);
 void    ft_lstadd_back(t_list **lst, t_list *new);
 void    ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
+void	ft_lstclear(t_list **lst);
 void	set_index(t_list *stack_a);
 void	sa(t_list **stack_a);
 void	sb(t_list **stack_b);
