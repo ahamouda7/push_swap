@@ -141,4 +141,6 @@ int main(int argc, char **argv)
 	printf("----------------\n");
 	printf("a2 | ");
 	print_stack(stack_a);
+	printf("b2 | ");
+	print_stack(stack_b);
 }
