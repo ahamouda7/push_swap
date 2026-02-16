@@ -123,7 +123,8 @@ int main(int argc, char **argv)
 	t_list	*stack_b;
     int     valid;
 
-	(void)argc;
+	if (argc == 1)
+		return (0);
 	valid = 1;
     nbrs_strs = isvalid(argv, &valid);
 	if (!valid)
@@ -134,13 +135,11 @@ int main(int argc, char **argv)
 		return(write(2, "Error\n", 6), 0);
 	stack_b = NULL;
 	set_index(stack_a);
-	printf("a1 | ");
+	printf("[a1] : ");
 	print_stack(stack_a);
 	printf("----------------\n");
 	push_swap(&stack_a, &stack_b);
 	printf("----------------\n");
-	printf("a2 | ");
+	printf("[a2] : ");
 	print_stack(stack_a);
-	printf("b2 | ");
-	print_stack(stack_b);
 }

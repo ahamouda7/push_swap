@@ -11,7 +11,7 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) push_swap.h
+$(NAME): $(OBJS) # push_swap.h
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c push_swap.h
