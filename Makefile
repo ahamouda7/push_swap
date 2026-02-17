@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 BONUS_NAME = checker
 
-MANDATORY_DIR = push_swap/
+MANDATORY_DIR = push_swap_mandatory/
 BONUS_DIR = push_swap_bonus/
 GNL_DIR = get_next_line/
 
@@ -19,24 +19,37 @@ SRCS = $(MANDATORY_DIR)free_2d.c \
         $(MANDATORY_DIR)ft_strjoin.c \
         $(MANDATORY_DIR)ft_strlen.c \
 		$(MANDATORY_DIR)isdup.c \
-		$(MANDATORY_DIR)operations.c \
+		$(MANDATORY_DIR)swap.c \
+		$(MANDATORY_DIR)push.c \
+		$(MANDATORY_DIR)rotate.c \
+		$(MANDATORY_DIR)rrotate.c \
 		$(MANDATORY_DIR)other_size.c \
 		$(MANDATORY_DIR)push_swap.c \
 		$(MANDATORY_DIR)remove_spaces.c \
-		$(MANDATORY_DIR)set_index.c
+		$(MANDATORY_DIR)set_index.c \
 		$(MANDATORY_DIR)small_size.c
 
 BONUS_SRCS = $(BONUS_DIR)checker.c \
-             $(BONUS_DIR)ft_atoi.c \
-             $(BONUS_DIR)ft_split.c \
-             $(BONUS_DIR)ft_strcmp.c \
-             $(BONUS_DIR)push_op.c \
-             $(BONUS_DIR)rotate_op.c \
-             $(BONUS_DIR)rrotate_op.c \
-             $(BONUS_DIR)stack_utils.c \
-             $(BONUS_DIR)swap_op.c \
-             $(BONUS_DIR)utils.c \
-             $(BONUS_DIR)validate_args.c
+            $(BONUS_DIR)free_2d.c \
+            $(BONUS_DIR)ft_atoi.c \
+            $(BONUS_DIR)ft_lstadd_back.c \
+            $(BONUS_DIR)ft_lstadd_front.c \
+            $(BONUS_DIR)ft_lstclear.c \
+            $(BONUS_DIR)ft_lstnew.c \
+            $(BONUS_DIR)ft_lstsize.c \
+            $(BONUS_DIR)ft_split.c \
+            $(BONUS_DIR)ft_strjoin.c \
+            $(BONUS_DIR)ft_strlen.c \
+            $(BONUS_DIR)isdup.c \
+		    $(BONUS_DIR)swap.c \
+		    $(BONUS_DIR)push.c \
+		    $(BONUS_DIR)rotate.c \
+		    $(BONUS_DIR)rrotate.c \
+            $(BONUS_DIR)other_size.c \
+            $(BONUS_DIR)push_swap.c \
+            $(BONUS_DIR)remove_spaces.c \
+            $(BONUS_DIR)set_index.c \
+            $(BONUS_DIR)small_size.c
 
 GNL_SRCS = $(GNL_DIR)get_next_line.c $(GNL_DIR)get_next_line_utils.c
 
@@ -73,4 +86,4 @@ re: fclean all
 
 rebonus: fclean bonus
 
-.PHONY: clean
+.PHONY: all clean fclean re bonus rebonus

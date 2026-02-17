@@ -1,4 +1,4 @@
-#include "push_swap_bonus.h"
+#include "push_swap.h"
 
 char	*remove_spaces(char *str)
 {

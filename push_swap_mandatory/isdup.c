@@ -1,4 +1,4 @@
-#include "push_swap_bonus.h"
+#include "push_swap.h"
 
 int	isdup(t_list *stack_a)
 {

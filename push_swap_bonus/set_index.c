@@ -6,11 +6,11 @@ void	set_index(t_list *stack_a)
 	t_list	*j;
 
 	i = stack_a;
-	while(i)
+	while (i)
 	{
 		i->index = 0;
 		j = stack_a;
-		while(j)
+		while (j)
 		{
 			if (j->value < i->value)
 				(i->index)++;

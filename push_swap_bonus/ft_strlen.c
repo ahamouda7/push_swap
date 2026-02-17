@@ -1,8 +1,8 @@
 #include "push_swap_bonus.h"
 
-size_t ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	size_t len;
+	size_t	len;
 
 	if (!str)
 		return (0);
