@@ -1,8 +1,8 @@
 #include "push_swap_bonus.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_bs_list **lst, t_bs_list *new)
 {
-	t_list	*last;
+	t_bs_list	*last;
 
 	if (!lst || !new)
 		return ;

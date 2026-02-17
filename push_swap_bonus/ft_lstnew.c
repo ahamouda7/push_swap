@@ -1,10 +1,10 @@
 #include "push_swap_bonus.h"
 
-t_list	*ft_lstnew(int value)
+t_bs_list	*ft_lstnew(int value)
 {
-	t_list	*newnode;
+	t_bs_list	*newnode;
 
-	newnode = malloc(sizeof(t_list));
+	newnode = malloc(sizeof(t_bs_list));
 	if (!newnode)
 		return (NULL);
 	newnode->value = value;

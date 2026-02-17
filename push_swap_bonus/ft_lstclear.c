@@ -1,10 +1,12 @@
 #include "push_swap_bonus.h"
 
-void	ft_lstclear(t_list **lst)
+void	ft_lstclear(t_bs_list **lst)
 {
-	t_list	*current;
-	t_list	*next;
+	t_bs_list	*current;
+	t_bs_list	*next;
 
+	if (!lst)
+		return ;
 	current = *lst;
 	while (current)
 	{

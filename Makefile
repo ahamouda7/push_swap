@@ -32,21 +32,20 @@ SRCS = $(MANDATORY_DIR)free_2d.c \
 BONUS_SRCS = $(BONUS_DIR)checker.c \
             $(BONUS_DIR)free_2d.c \
             $(BONUS_DIR)ft_atoi.c \
+            $(BONUS_DIR)ft_strcmp.c \
             $(BONUS_DIR)ft_lstadd_back.c \
             $(BONUS_DIR)ft_lstadd_front.c \
             $(BONUS_DIR)ft_lstclear.c \
             $(BONUS_DIR)ft_lstnew.c \
             $(BONUS_DIR)ft_lstsize.c \
             $(BONUS_DIR)ft_split.c \
-            $(BONUS_DIR)ft_strjoin.c \
-            $(BONUS_DIR)ft_strlen.c \
             $(BONUS_DIR)isdup.c \
 		    $(BONUS_DIR)swap.c \
 		    $(BONUS_DIR)push.c \
 		    $(BONUS_DIR)rotate.c \
 		    $(BONUS_DIR)rrotate.c \
             $(BONUS_DIR)other_size.c \
-            $(BONUS_DIR)push_swap.c \
+			$(BONUS_DIR)checker_utils.c \
             $(BONUS_DIR)remove_spaces.c \
             $(BONUS_DIR)set_index.c \
             $(BONUS_DIR)small_size.c

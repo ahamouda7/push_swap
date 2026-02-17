@@ -1,6 +1,6 @@
 #include "push_swap_bonus.h"
 
-static void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
+static void	push_chunks(t_bs_list **stack_a, t_bs_list **stack_b, int chunk_size)
 {
 	int		i;
 
@@ -20,7 +20,7 @@ static void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
 	}
 }
 
-static int	find_max(t_list *stack_b)
+static int	find_max(t_bs_list *stack_b)
 {
 	int	max_index;
 
@@ -34,7 +34,7 @@ static int	find_max(t_list *stack_b)
 	return (max_index);
 }
 
-static int	order(t_list *stack_b, t_list *max)
+static int	order(t_bs_list *stack_b, t_bs_list *max)
 {
 	int	order;
 
@@ -49,9 +49,9 @@ static int	order(t_list *stack_b, t_list *max)
 	return (-1);
 }
 
-static void	push_back(t_list **stack_a, t_list **stack_b)
+static void	push_back(t_bs_list **stack_a, t_bs_list **stack_b)
 {
-	t_list	*may_max;
+	t_bs_list	*may_max;
 
 	set_index(*stack_b);
 	may_max = *stack_b;
@@ -78,7 +78,7 @@ static void	push_back(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	other_size(t_list **stack_a, t_list **stack_b)
+void	other_size(t_bs_list **stack_a, t_bs_list **stack_b)
 {
 	int	chunk_size;
 

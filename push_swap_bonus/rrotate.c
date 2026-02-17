@@ -1,9 +1,9 @@
 #include "push_swap_bonus.h"
 
-static void	rrotate(t_list **stack)
+static void	rrotate(t_bs_list **stack)
 {
-	t_list	*last;
-	t_list	*prev;
+	t_bs_list	*last;
+	t_bs_list	*prev;
 
 	prev = *stack;
 	while ((prev->next)->next)
@@ -13,18 +13,21 @@ static void	rrotate(t_list **stack)
 	ft_lstadd_front(stack, last);
 }
 
-void	rra(t_list **stack_a)
+void	rra(t_bs_list **stack_a)
 {
 	rrotate(stack_a);
+	write(1, "rra\n", 4);
 }
 
-void	rrb(t_list **stack_b)
+void	rrb(t_bs_list **stack_b)
 {
 	rrotate(stack_b);
+	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b)
+void	rrr(t_bs_list **stack_a, t_bs_list **stack_b)
 {
 	rrotate(stack_a);
 	rrotate(stack_b);
+	write(1, "rrr\n", 4);
 }

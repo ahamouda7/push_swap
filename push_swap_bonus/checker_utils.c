@@ -1,0 +1,104 @@
+#include "push_swap_bonus.h"
+
+char	*return_str(char *str, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		argv[i] = remove_spaces(argv[i]);
+		if (!*argv[i]
+			|| ((*argv[i] == '-' || *argv[i] == '+') && !argv[i][1]))
+			return (free(str), NULL);
+		str = ft_strjoin(str, argv[i]);
+		if (argv[i + 1])
+			str = ft_strjoin(str, " ");
+		i++;
+	}
+	return (str);
+}
+
+char	**isvalid(char **argv, int *valid)
+{
+	char	*str;
+	char	**nbrs_strs;
+	int		i;
+
+	str = NULL;
+	str = return_str(str, argv);
+	if (!str)
+		return (*valid = 0, NULL);
+	nbrs_strs = ft_split(str);
+	free(str);
+	i = 0;
+	*valid = 1;
+	while (nbrs_strs[i])
+	{
+		ft_atoi(nbrs_strs[i], valid);
+		if (!*valid)
+			return (free_2d(nbrs_strs), *valid = 0, NULL);
+		i++;
+	}
+	return (nbrs_strs);
+}
+
+t_bs_list	*create_stack_a(t_bs_list *stack_a, char **nbrs_strs)
+{
+	int			i;
+	int			valid;
+	t_bs_list	*new;
+
+	i = 0;
+	while (nbrs_strs[i])
+	{
+		valid = 1;
+		new = ft_lstnew(ft_atoi(nbrs_strs[i], &valid));
+		ft_lstadd_back(&stack_a, new);
+		i++;
+	}
+	free_2d(nbrs_strs);
+	return (stack_a);
+}
+
+// static void	push_swap(t_bs_list **stack_a, t_bs_list **stack_b)
+// {
+// 	int	size;
+
+// 	size = ft_lstsize(*stack_a);
+// 	if (size == 2)
+// 		size_2(stack_a);
+// 	else if (size == 3)
+// 		size_3(stack_a);
+// 	else if (size == 4)
+// 		size_4(stack_a, stack_b);
+// 	else if (size == 5)
+// 		size_5(stack_a, stack_b);
+// 	else
+// 		other_size(stack_a, stack_b);
+// }
+
+// void	push_swap_bonus(char **argv)
+// {
+// 	char	**nbrs_strs;
+// 	t_bs_list	*stack_a;
+// 	t_bs_list	*stack_b;
+// 	int		valid;
+
+// 	valid = 1;
+// 	stack_a = NULL;
+// 	nbrs_strs = isvalid(argv, &valid);
+// 	if (!valid)
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (free_2d(nbrs_strs));
+// 	}
+// 	create_stack_a(&stack_a, nbrs_strs);
+// 	nbrs_strs = NULL;
+// 	if (isdup(stack_a))
+// 		return (write(2, "Error\n", 6), ft_lstclear(&stack_a));
+// 	stack_b = NULL;
+// 	set_index(stack_a);
+// 	push_swap(&stack_a, &stack_b);
+// 	return (ft_lstclear(&stack_a), ft_lstclear(&stack_b));
+// }

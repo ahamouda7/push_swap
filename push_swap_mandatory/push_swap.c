@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static char	*return_str(char *str, char **argv)
+char	*return_str(char *str, char **argv)
 {
 	int	i;
 
@@ -19,7 +19,7 @@ static char	*return_str(char *str, char **argv)
 	return (str);
 }
 
-static char	**isvalid(char **argv, int *valid)
+char	**isvalid(char **argv, int *valid)
 {
 	char	*str;
 	char	**nbrs_strs;
@@ -43,7 +43,7 @@ static char	**isvalid(char **argv, int *valid)
 	return (nbrs_strs);
 }
 
-static void	create_stack_a(t_list **stack_a, char **nbrs_strs)
+void	create_stack_a(t_list **stack_a, char **nbrs_strs)
 {
 	int		i;
 	t_list	*new;
@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 	if (!valid)
 	{
 		write(2, "Error\n", 6);
-		return (free_2d(nbrs_strs), ft_lstclear(&stack_a), 1);
+		return (free_2d(nbrs_strs), 1);
 	}
 	create_stack_a(&stack_a, nbrs_strs);
 	nbrs_strs = NULL;

@@ -14,6 +14,9 @@ typedef struct s_list
 size_t	ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_atoi(char *str, int *valid);
+char	*return_str(char *str, char **argv);
+char	**isvalid(char **argv, int *valid);
+void	create_stack_a(t_list **stack_a, char **nbrs_strs);
 char	**ft_split(char const *s);
 t_list	*ft_lstnew(int value);
 void	ft_lstadd_back(t_list **lst, t_list *new);

@@ -1,17 +1,17 @@
 #include "push_swap_bonus.h"
 
-void	size_2(t_list **stack_a)
+void	size_2(t_bs_list **stack_a)
 {
-	t_list	*a;
+	t_bs_list	*a;
 
 	a = *stack_a;
 	if (a->index == 1)
 		sa(stack_a);
 }
 
-void	size_3(t_list **stack_a)
+void	size_3(t_bs_list **stack_a)
 {
-	t_list	*a;
+	t_bs_list	*a;
 
 	a = *stack_a;
 	if (a->index == 2)
@@ -21,10 +21,10 @@ void	size_3(t_list **stack_a)
 	size_2(stack_a);
 }
 
-static void	min_in_3(t_list **stack_a, t_list **stack_b)
+static void	min_in_3(t_bs_list **stack_a, t_bs_list **stack_b)
 {
-	t_list	*a;
-	t_list	*b;
+	t_bs_list	*a;
+	t_bs_list	*b;
 
 	a = *stack_a;
 	b = a->next;
@@ -43,10 +43,10 @@ static void	min_in_3(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	size_4(t_list **stack_a, t_list **stack_b)
+void	size_4(t_bs_list **stack_a, t_bs_list **stack_b)
 {
-	t_list	*a;
-	t_list	*b;
+	t_bs_list	*a;
+	t_bs_list	*b;
 
 	a = *stack_a;
 	b = a->next;
@@ -62,11 +62,11 @@ void	size_4(t_list **stack_a, t_list **stack_b)
 	pa(stack_b, stack_a);
 }
 
-void	size_5(t_list **stack_a, t_list **stack_b)
+void	size_5(t_bs_list **stack_a, t_bs_list **stack_b)
 {
-	t_list	*a;
-	t_list	*b;
-	t_list	*c;
+	t_bs_list	*a;
+	t_bs_list	*b;
+	t_bs_list	*c;
 
 	a = *stack_a;
 	b = a->next;

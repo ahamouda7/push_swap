@@ -1,9 +1,9 @@
 #include "push_swap_bonus.h"
 
-void	set_index(t_list *stack_a)
+void	set_index(t_bs_list *stack_a)
 {
-	t_list	*i;
-	t_list	*j;
+	t_bs_list	*i;
+	t_bs_list	*j;
 
 	i = stack_a;
 	while (i)
