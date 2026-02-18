@@ -60,4 +60,3 @@ t_bs_list	*create_stack_a(t_bs_list *stack_a, char **nbrs_strs)
 	free_2d(nbrs_strs);
 	return (stack_a);
 }
-
