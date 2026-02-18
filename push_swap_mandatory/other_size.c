@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	push_chunk(t_list **stack_a, t_list **stack_b, int chunk_size)
+static void	push_chunks(t_list **stack_a, t_list **stack_b, int range)
 {
 	int		i;
 
@@ -21,7 +21,7 @@ static void	push_chunk(t_list **stack_a, t_list **stack_b, int chunk_size)
 	{
 		if ((*stack_a)->index <= i)
 			pb(stack_a, stack_b);
-		else if ((*stack_a)->index <= i + chunk_size)
+		else if ((*stack_a)->index <= i + range)
 		{
 			pb(stack_a, stack_b);
 			rb(stack_b);
@@ -92,12 +92,12 @@ static void	push_back(t_list **stack_a, t_list **stack_b)
 
 void	other_size(t_list **stack_a, t_list **stack_b)
 {
-	int	chunk_size;
+	int	range;
 
 	if (ft_lstsize(*stack_a) <= 100)
-		chunk_size = 15;
+		range = 15;
 	else
-		chunk_size = 30;
-	push_chunk(stack_a, stack_b, chunk_size);
+		range = 30;
+	push_chunks(stack_a, stack_b, range);
 	push_back(stack_a, stack_b);
 }

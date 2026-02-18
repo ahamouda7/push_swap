@@ -144,6 +144,24 @@ Test with checker:
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS  $ARG
 ```
 
+Test bonus:
+
+```bash
+./push_swap 4 67 3 87 23 | ./checker 4 67 3 87 23
+```
+
+- If the program works, it prints:
+
+    ```
+    OK
+    ```
+
+- Otherwise, it prints:
+
+    ```
+    KO
+    ```
+
 ---
 
 #### ❌ Error Handling
@@ -166,8 +184,7 @@ Error
 ## 📚 Resources
 
 #### 🔹 Sorting Algorithms
-- https://en.wikipedia.org/wiki/Radix_sort
-- https://en.wikipedia.org/wiki/Sorting_algorithm
+- Google searches: push_swap range algorithm
 
 #### 🔹 42 Documentation
 - Official subject PDF

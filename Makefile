@@ -44,11 +44,9 @@ BONUS_SRCS = $(BONUS_DIR)checker.c \
 		    $(BONUS_DIR)push.c \
 		    $(BONUS_DIR)rotate.c \
 		    $(BONUS_DIR)rrotate.c \
-            $(BONUS_DIR)other_size.c \
 			$(BONUS_DIR)checker_utils.c \
             $(BONUS_DIR)remove_spaces.c \
-            $(BONUS_DIR)set_index.c \
-            $(BONUS_DIR)small_size.c
+            $(BONUS_DIR)set_index.c
 
 GNL_SRCS = $(GNL_DIR)get_next_line.c $(GNL_DIR)get_next_line_utils.c
 
