@@ -87,14 +87,14 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	nbrs_strs = isvalid(argv, &valid);
 	if (!valid)
-		return (free_2d(nbrs_strs), write(2, "Error\n", 6), 0);
+		return (free_2d(nbrs_strs), write(2, "Error\n", 6), 1);
 	stack_a = create_stack_a(stack_a, nbrs_strs);
 	nbrs_strs = NULL;
 	if (isdup(stack_a))
-		return (write(2, "Error\n", 6), ft_lstclear(&stack_a), 0);
+		return (write(2, "Error\n", 6), ft_lstclear(&stack_a), 1);
 	stack_b = NULL;
 	if (!read_and_execute(&stack_a, &stack_b))
-		return (ft_lstclear(&stack_a), ft_lstclear(&stack_b), 0);
+		return (ft_lstclear(&stack_a), ft_lstclear(&stack_b), 1);
 	if (sorted_and_b_empty(stack_a, stack_b))
 		write(1, "OK\n", 3);
 	else

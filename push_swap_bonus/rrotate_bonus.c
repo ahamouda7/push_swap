@@ -17,6 +17,8 @@ static void	rrotate(t_bs_list **stack)
 	t_bs_list	*last;
 	t_bs_list	*prev;
 
+	if (!*stack || !(*stack)->next)
+		return ;
 	prev = *stack;
 	while ((prev->next)->next)
 		prev = prev->next;

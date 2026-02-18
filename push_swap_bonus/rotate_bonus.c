@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/17 23:48:36 by ahamouda          #+#    #+#             */
-/*   Updated: 2026/02/17 23:48:36 by ahamouda         ###   ########.fr       */
+/*   Created: 2026/02/17 23:48:24 by ahamouda          #+#    #+#             */
+/*   Updated: 2026/02/17 23:48:24 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-static void	swap(t_bs_list **stack)
+static void	rotate(t_bs_list **stack)
 {
 	t_bs_list	*first;
-	t_bs_list	*second;
 
+	if (!*stack)
+		return ;
 	first = *stack;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
+	*stack = first->next;
+	first->next = NULL;
+	ft_lstadd_back(stack, first);
 }
 
-void	sa(t_bs_list **stack_a)
+void	ra(t_bs_list **stack_a)
 {
-	swap(stack_a);
+	rotate(stack_a);
 }
 
-void	sb(t_bs_list **stack_b)
+void	rb(t_bs_list **stack_b)
 {
-	swap(stack_b);
+	rotate(stack_b);
 }
 
-void	ss(t_bs_list **stack_a, t_bs_list **stack_b)
+void	rr(t_bs_list **stack_a, t_bs_list **stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
+	rotate(stack_a);
+	rotate(stack_b);
 }

@@ -12,13 +12,15 @@
 
 #include "push_swap_bonus.h"
 
-static void	push(t_bs_list **stack_1, t_bs_list **stack_2)
+static void	push(t_bs_list **stack_a, t_bs_list **stack_b)
 {
 	t_bs_list	*first;
 
-	first = *stack_1;
-	*stack_1 = first->next;
-	ft_lstadd_front(stack_2, first);
+	if (!*stack_a)
+		return ;
+	first = *stack_a;
+	*stack_a = first->next;
+	ft_lstadd_front(stack_b, first);
 }
 
 void	pa(t_bs_list **stack_b, t_bs_list **stack_a)

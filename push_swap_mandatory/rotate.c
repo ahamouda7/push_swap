@@ -16,6 +16,8 @@ static void	rotate(t_list **stack)
 {
 	t_list	*first;
 
+	if (!*stack)
+		return ;
 	first = *stack;
 	*stack = first->next;
 	first->next = NULL;

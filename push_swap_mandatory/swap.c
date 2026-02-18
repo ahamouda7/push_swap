@@ -17,6 +17,8 @@ static void	swap(t_list **stack)
 	t_list	*first;
 	t_list	*second;
 
+	if (!*stack || !(*stack)->next)
+		return ;
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
