@@ -75,7 +75,7 @@ static void	push_swap(t_list **stack_a, t_list **stack_b)
 	int	size;
 
 	size = ft_lstsize(*stack_a);
-	if (size == 2)
+	if (size <= 2)
 		size_2(stack_a);
 	else if (size == 3)
 		size_3(stack_a);
