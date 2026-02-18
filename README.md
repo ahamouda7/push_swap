@@ -187,7 +187,7 @@ Error
 - Google searches: push_swap range algorithm
 
 #### 🔹 42 Documentation
-- Official subject PDF
+- Official subject PDF (42 Network)
 - Peer corrections & evaluations
 
 #### 🔹 Testing Tools
