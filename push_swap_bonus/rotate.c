@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/17 23:48:24 by ahamouda          #+#    #+#             */
+/*   Updated: 2026/02/17 23:48:24 by ahamouda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 static void	rotate(t_bs_list **stack)
@@ -13,18 +25,15 @@ static void	rotate(t_bs_list **stack)
 void	ra(t_bs_list **stack_a)
 {
 	rotate(stack_a);
-	write(1, "ra\n", 3);
 }
 
 void	rb(t_bs_list **stack_b)
 {
 	rotate(stack_b);
-	write(1, "rb\n", 3);
 }
 
 void	rr(t_bs_list **stack_a, t_bs_list **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	write(1, "rr\n", 3);
 }

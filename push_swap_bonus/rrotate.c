@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rrotate.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/17 23:48:27 by ahamouda          #+#    #+#             */
+/*   Updated: 2026/02/17 23:48:27 by ahamouda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 static void	rrotate(t_bs_list **stack)
@@ -16,18 +28,15 @@ static void	rrotate(t_bs_list **stack)
 void	rra(t_bs_list **stack_a)
 {
 	rrotate(stack_a);
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_bs_list **stack_b)
 {
 	rrotate(stack_b);
-	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_bs_list **stack_a, t_bs_list **stack_b)
 {
 	rrotate(stack_a);
 	rrotate(stack_b);
-	write(1, "rrr\n", 4);
 }

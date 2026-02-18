@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   other_size.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/17 23:49:42 by ahamouda          #+#    #+#             */
+/*   Updated: 2026/02/17 23:49:42 by ahamouda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
+static void	push_chunk(t_list **stack_a, t_list **stack_b, int chunk_size)
 {
 	int		i;
 
@@ -86,6 +98,6 @@ void	other_size(t_list **stack_a, t_list **stack_b)
 		chunk_size = 15;
 	else
 		chunk_size = 30;
-	push_chunks(stack_a, stack_b, chunk_size);
+	push_chunk(stack_a, stack_b, chunk_size);
 	push_back(stack_a, stack_b);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/17 23:48:36 by ahamouda          #+#    #+#             */
+/*   Updated: 2026/02/17 23:48:36 by ahamouda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 static void	swap(t_bs_list **stack)
@@ -15,18 +27,15 @@ static void	swap(t_bs_list **stack)
 void	sa(t_bs_list **stack_a)
 {
 	swap(stack_a);
-	write(1, "sa\n", 3);
 }
 
 void	sb(t_bs_list **stack_b)
 {
 	swap(stack_b);
-	write(1, "sb\n", 3);
 }
 
 void	ss(t_bs_list **stack_a, t_bs_list **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
 }
