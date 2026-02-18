@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	push_chunks(t_list **stack_a, t_list **stack_b, int range)
+static void	push_with_range(t_list **stack_a, t_list **stack_b, int range)
 {
 	int		i;
 
@@ -98,6 +98,6 @@ void	other_size(t_list **stack_a, t_list **stack_b)
 		range = 15;
 	else
 		range = 30;
-	push_chunks(stack_a, stack_b, range);
+	push_with_range(stack_a, stack_b, range);
 	push_back(stack_a, stack_b);
 }
