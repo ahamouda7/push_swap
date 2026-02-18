@@ -86,7 +86,7 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = NULL;
 	nbrs_strs = isvalid(argv, &valid);
-	if (!valid) 
+	if (!valid)
 		return (free_2d(nbrs_strs), write(2, "Error\n", 6), 0);
 	stack_a = create_stack_a(stack_a, nbrs_strs);
 	nbrs_strs = NULL;
