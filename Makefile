@@ -19,6 +19,7 @@ SRCS = $(MANDATORY_DIR)free_2d.c \
         $(MANDATORY_DIR)ft_strjoin.c \
         $(MANDATORY_DIR)ft_strlen.c \
 		$(MANDATORY_DIR)isdup.c \
+		$(MANDATORY_DIR)sorted.c \
 		$(MANDATORY_DIR)swap.c \
 		$(MANDATORY_DIR)push.c \
 		$(MANDATORY_DIR)rotate.c \

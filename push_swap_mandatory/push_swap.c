@@ -110,6 +110,8 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6), ft_lstclear(&stack_a), 1);
 	stack_b = NULL;
 	set_index(stack_a);
+	if (sorted(stack_a))
+		return (0);
 	push_swap(&stack_a, &stack_b);
 	return (ft_lstclear(&stack_a), ft_lstclear(&stack_b), 0);
 }
