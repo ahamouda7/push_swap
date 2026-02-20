@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remove_spaces.c                                    :+:      :+:    :+:   */
+/*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/17 23:49:55 by ahamouda          #+#    #+#             */
-/*   Updated: 2026/02/20 09:11:48 by ahamouda         ###   ########.fr       */
+/*   Created: 2026/02/19 12:54:42 by ahamouda          #+#    #+#             */
+/*   Updated: 2026/02/20 10:05:11 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-char	*remove_spaces(char *str)
+int	sorted(t_bs_list *stack_a)
 {
-	int	end;
-
-	while (*str && (*str == ' ' || *str == '\t'))
-		str++;
-	end = 0;
-	while (str[end])
-		end++;
-	end--;
-	while (end > 0 && (str[end] == ' ' || str[end] == '\t'))
-		end--;
-	end++;
-	str[end] = '\0';
-	return (str);
+	while (stack_a && stack_a->next)
+	{
+		if (stack_a->value > (stack_a->next)->value)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
 }

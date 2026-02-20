@@ -41,6 +41,7 @@ BONUS_SRCS = $(BONUS_DIR)checker_bonus.c \
             $(BONUS_DIR)ft_lstsize_bonus.c \
             $(BONUS_DIR)ft_split_bonus.c \
             $(BONUS_DIR)isdup_bonus.c \
+            $(BONUS_DIR)sorted_bonus.c \
 		    $(BONUS_DIR)swap_bonus.c \
 		    $(BONUS_DIR)push_bonus.c \
 		    $(BONUS_DIR)rotate_bonus.c \

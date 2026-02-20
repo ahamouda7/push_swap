@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 23:49:45 by ahamouda          #+#    #+#             */
-/*   Updated: 2026/02/17 23:49:45 by ahamouda         ###   ########.fr       */
+/*   Updated: 2026/02/20 10:03:23 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,11 @@ char	**isvalid(char **argv, int *valid)
 	nbrs_strs = ft_split(str);
 	free(str);
 	i = 0;
-	*valid = 1;
 	while (nbrs_strs[i])
 	{
 		ft_atoi(nbrs_strs[i], valid);
 		if (!*valid)
-			return (free_2d(nbrs_strs), *valid = 0, NULL);
+			return (free_2d(nbrs_strs), NULL);
 		i++;
 	}
 	return (nbrs_strs);
@@ -75,7 +74,7 @@ static void	push_swap(t_list **stack_a, t_list **stack_b)
 	int	size;
 
 	size = ft_lstsize(*stack_a);
-	if (size <= 2)
+	if (size == 2)
 		size_2(stack_a);
 	else if (size == 3)
 		size_3(stack_a);
@@ -100,18 +99,15 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	nbrs_strs = isvalid(argv, &valid);
 	if (!valid)
-	{
-		write(2, "Error\n", 6);
-		return (free_2d(nbrs_strs), 1);
-	}
+		return (write(2, "Error\n", 6), free_2d(nbrs_strs), 1);
 	create_stack_a(&stack_a, nbrs_strs);
 	nbrs_strs = NULL;
 	if (isdup(stack_a))
 		return (write(2, "Error\n", 6), ft_lstclear(&stack_a), 1);
+	if (sorted(stack_a))
+		return (ft_lstclear(&stack_a), 0);
 	stack_b = NULL;
 	set_index(stack_a);
-	if (sorted(stack_a))
-		return (0);
 	push_swap(&stack_a, &stack_b);
 	return (ft_lstclear(&stack_a), ft_lstclear(&stack_b), 0);
 }

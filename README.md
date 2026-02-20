@@ -198,6 +198,4 @@ Error
 
 ## 🤖 AI Usage
 
-AI tools were used strictly as supplementary learning resources. They assisted in understanding algorithmic concepts, refining documentation wording, and reviewing theoretical approaches.
-
-All project architecture, data structures, algorithm design, implementation, debugging, and performance optimization were developed independently to ensure full comprehension and adherence to 42 academic integrity standards.
+- AI tools were used only to clarify general programming concepts and improve understanding of algorithms and C syntax, all design decisions, logic, and implementation of this project were done independently. AI was not used to generate the final source code.

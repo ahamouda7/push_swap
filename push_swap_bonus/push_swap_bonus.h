@@ -35,6 +35,7 @@ void		ft_lstadd_back(t_bs_list **lst, t_bs_list *new);
 void		ft_lstadd_front(t_bs_list **lst, t_bs_list *new);
 int			ft_lstsize(t_bs_list *lst);
 void		ft_lstclear(t_bs_list **lst);
+int			sorted(t_bs_list *stack_a);
 void		set_index(t_bs_list *stack_a);
 void		sa(t_bs_list **stack_a);
 void		sb(t_bs_list **stack_b);

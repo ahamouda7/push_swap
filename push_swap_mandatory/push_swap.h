@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 23:49:47 by ahamouda          #+#    #+#             */
-/*   Updated: 2026/02/17 23:49:47 by ahamouda         ###   ########.fr       */
+/*   Updated: 2026/02/20 10:05:59 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst);
-void	set_index(t_list *stack_a);
 int		sorted(t_list *stack_a);
+void	set_index(t_list *stack_a);
 void	sa(t_list **stack_a);
 void	sb(t_list **stack_b);
 void	ss(t_list **stack_a, t_list **stack_b);
