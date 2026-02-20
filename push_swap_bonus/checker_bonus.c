@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 23:46:24 by ahamouda          #+#    #+#             */
-/*   Updated: 2026/02/20 10:18:31 by ahamouda         ###   ########.fr       */
+/*   Updated: 2026/02/20 17:12:29 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	main(int argc, char **argv)
 	if (isdup(stack_a))
 		return (write(2, "Error\n", 6), ft_lstclear(&stack_a), 1);
 	if (sorted(stack_a))
-		return (ft_lstclear(&stack_a), 0);
+		return (write(1, "OK\n", 3), ft_lstclear(&stack_a), 0);
 	stack_b = NULL;
 	if (!read_and_execute(&stack_a, &stack_b))
 		return (ft_lstclear(&stack_a), ft_lstclear(&stack_b), 1);
