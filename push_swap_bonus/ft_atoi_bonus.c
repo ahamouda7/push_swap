@@ -23,6 +23,8 @@ int	ft_atoi(char *str, int *valid)
 		if (*str == '-')
 			sign = -1;
 		str++;
+		if (*str < '0' || *str > '9')
+			return (*valid = 0, 0);
 	}
 	res = 0;
 	while (*str)

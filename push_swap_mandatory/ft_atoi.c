@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 23:49:13 by ahamouda          #+#    #+#             */
-/*   Updated: 2026/02/17 23:49:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2026/02/21 17:57:50 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_atoi(char *str, int *valid)
 		if (*str == '-')
 			sign = -1;
 		str++;
+		if (*str < '0' || *str > '9')
+			return (*valid = 0, 0);
 	}
 	res = 0;
 	while (*str)
