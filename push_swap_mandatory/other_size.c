@@ -12,29 +12,6 @@
 
 #include "push_swap.h"
 
-static void	push_with_range(t_list **stack_a, t_list **stack_b, int range)
-{
-	int		i;
-
-	i = 0;
-	while (*stack_a)
-	{
-		if ((*stack_a)->index <= i)
-		{
-			pb(stack_a, stack_b);
-			i++;
-		}
-		else if ((*stack_a)->index <= i + range)
-		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
-			i++;
-		}
-		else
-			ra(stack_a);
-	}
-}
-
 static int	find_max(t_list *stack_b)
 {
 	int	max_index;
@@ -95,14 +72,7 @@ static void	push_back(t_list **stack_a, t_list **stack_b)
 
 void	other_size(t_list **stack_a, t_list **stack_b)
 {
-	int	range;
-
-	if (ft_lstsize(*stack_a) <= 100)
-		range = 15;
-	else if (ft_lstsize(*stack_a) <= 500)
-		range = 35;
-	else
-		range = ft_lstsize(*stack_a) / 13;
-	push_with_range(stack_a, stack_b, range);
+	while (*stack_a)
+		pb(stack_a, stack_b);
 	push_back(stack_a, stack_b);
 }
