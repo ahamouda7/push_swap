@@ -20,8 +20,7 @@ char	*return_str(char *str, char **argv)
 	while (argv[i])
 	{
 		argv[i] = remove_spaces(argv[i]);
-		if (!*argv[i]
-			|| ((*argv[i] == '-' || *argv[i] == '+') && !argv[i][1]))
+		if (!*argv[i])
 			return (free(str), NULL);
 		str = ft_strjoin(str, argv[i]);
 		if (argv[i + 1])
