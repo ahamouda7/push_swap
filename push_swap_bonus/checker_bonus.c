@@ -95,8 +95,6 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (!read_and_execute(&stack_a, &stack_b))
 		return (ft_lstclear(&stack_a), ft_lstclear(&stack_b), 1);
-	if (sorted(stack_a))
-		return (write(1, "OK\n", 3), ft_lstclear(&stack_a), 0);
 	if (sorted_and_b_empty(stack_a, stack_b))
 		write(1, "OK\n", 3);
 	else
