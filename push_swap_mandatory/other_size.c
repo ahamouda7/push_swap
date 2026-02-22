@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda.student@42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 23:49:42 by ahamouda          #+#    #+#             */
-/*   Updated: 2026/02/17 23:49:42 by ahamouda         ###   ########.fr       */
+/*   Updated: 2026/02/22 08:49:41 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	push_with_range(t_list **stack_a, t_list **stack_b, int range)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (*stack_a)
@@ -99,8 +99,6 @@ void	other_size(t_list **stack_a, t_list **stack_b)
 
 	if (ft_lstsize(*stack_a) <= 100)
 		range = 15;
-	else if (ft_lstsize(*stack_a) <= 500)
-		range = 35;
 	else
 		range = ft_lstsize(*stack_a) / 13;
 	push_with_range(stack_a, stack_b, range);
